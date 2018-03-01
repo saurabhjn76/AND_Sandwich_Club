@@ -1,9 +1,11 @@
 package com.udacity.sandwichclub;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,10 @@ public class DetailActivity extends AppCompatActivity {
        alsoKnownTv  = findViewById(R.id.also_known_tv);
        descriptionTv = findViewById(R.id.description_tv);
        ingredientTv = findViewById(R.id.ingredients_tv);
+
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
 
         Intent intent = getIntent();
@@ -84,5 +90,15 @@ public class DetailActivity extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
