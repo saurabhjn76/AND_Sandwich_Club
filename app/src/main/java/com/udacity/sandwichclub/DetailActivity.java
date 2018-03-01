@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -84,8 +85,8 @@ public class DetailActivity extends AppCompatActivity {
         }
         descriptionTv.setText(sandwich.getDescription());
         placeOforiginTv.setText(sandwich.getPlaceOfOrigin());
-        ingredientTv.setText(sandwich.getIngredients().toString());
-        alsoKnownTv.setText(sandwich.getAlsoKnownAs().toString());
+        ingredientTv.setText( TextUtils.join("\n",sandwich.getIngredients()));
+        alsoKnownTv.setText( TextUtils.join("\n", sandwich.getAlsoKnownAs()));
 
 
 
@@ -101,4 +102,5 @@ public class DetailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
